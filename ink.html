@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ink paintings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      padding: 40px 20px 20px;
+      background-color: #ffffff;
+    }
+
+    .header h1 {
+      margin-bottom: 10px;
+      font-size: 2em;
+    }
+
+    .header p {
+      margin: 0 auto;
+      max-width: 600px;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .slider {
+      max-width: 900px;
+      margin: 40px auto;
+      position: relative;
+      height: 600px;
+      overflow:hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slider img {
+      max-height: 100%;
+      height: auto;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header / Intro -->
+<div class="header">
+  <h2>
+                  Veronica Dudarev: Ink Paintings
+  </h2>
+                <p style="text-align:right">
+                  <a href="photos.html">Photography</a> &nbsp;/&nbsp;
+                  <a href="index.html">Back to Home</a>
+                </p>
+</div>
+
+<!-- Image Slider -->
+<div class="slider">
+  <button class="arrow left" onclick="changeSlide(-1)">❮</button>
+  <img id="slider-image" src="images/IMG_0947.jpg" alt="Gallery Image">
+  <button class="arrow right" onclick="changeSlide(1)">❯</button>
+</div>
+
+<script>
+  const images = [
+    'images/IMG_0947.jpg',
+    'images/IMG_0946.jpg',
+    'images/IMG_0948.jpg',
+    'images/IMG_0945.jpg',
+    'images/flowers.jpg',
+    'images/DSCN7923 copy.jpg',
+    'images/fan.jpg',
+    'images/bunchofflowers.jpeg',
+    'images/Portrait.jpeg',
+    'images/sleeping_gargoyle.jpg',
+    'images/rose.jpg'
+  ];
+
+  let currentIndex = 0;
+
+  function changeSlide(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    document.getElementById('slider-image').src = images[currentIndex];
+  }
+</script>
+
+</body>
+</html>
